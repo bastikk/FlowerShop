@@ -1,0 +1,7 @@
+<%= link_to "Create product", new_product_path %>
+<% @products.each do |product| %>
+  <div class="table-of-contents">
+    <h3><%= product.title %></h3>
+    <p><%= product.description %></p>
+  </div>
+<% end %>

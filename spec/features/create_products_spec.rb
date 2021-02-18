@@ -8,8 +8,8 @@ require 'rails_helper.rb'
 # expect main page with the content submitted
 
 
-feature 'Creating Products' do
-  scenario 'can create job' do
+feature 'Work with products' do
+  scenario 'Create product' do
     #visit root route
     visit '/'
     # click create
@@ -18,13 +18,25 @@ feature 'Creating Products' do
     fill_in 'Title', with: 'title'
     fill_in 'Description', with: 'description'
     # click submit
-    click_button 'Create Update'
+    click_button 'Create product'
     # expect page with content
     expect(page).to have_content('title')
     expect(page).to have_content('description')
     # click back page
-    click_button 'Main page'
+    click_link 'Main page'
     # expect main page with the content submitted
     expect(page).to have_content('title')
+  end
+
+  scenario 'can create job' do
+    #withit page of product
+
+    #click edit product
+
+    #edit fields
+
+    #save changes
+
+    #expect appropriate content
   end
 end
