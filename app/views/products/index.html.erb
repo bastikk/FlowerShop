@@ -1,7 +1,7 @@
-<%= link_to "Create product", new_product_path %>
+<%= button_to "Create product", new_product_path, method: :get %>
 <% @products.each do |product| %>
   <div class="table-of-contents">
-    <h3><%= product.title %></h3>
+    <h3><%= link_to product.title, product_path(product) %></h3>
     <p><%= product.description %></p>
   </div>
 <% end %>

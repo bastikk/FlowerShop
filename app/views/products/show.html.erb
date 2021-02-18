@@ -1,3 +1,6 @@
 <h3><%= @product.title %></h3>
 <p><%= @product.description %></p>
-<%= link_to "Main page", root_path %>
+
+<%= button_to "Edit", edit_product_path(@product), method: :get %>
+<%= button_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure"} %>
+<%= button_to "Main page", root_path, class: "btn", method: :get %>
