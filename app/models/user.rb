@@ -12,6 +12,6 @@ class User < ApplicationRecord
   roles :admin, :customer
 
   def init
-    self.roles = [:customer]
+    self.roles <<:customer
   end
 end
