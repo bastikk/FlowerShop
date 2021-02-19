@@ -1,4 +1,7 @@
-<%= button_to "Create product", new_product_path, method: :get %>
+<% if user_signed_in? %>
+  <%= button_to "Create product", new_product_path, method: :get %>
+<% end %>
+
 <% @products.each do |product| %>
   <div class="table-of-contents">
     <h3><%= link_to product.title, product_path(product) %></h3>
