@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_100546) do
+ActiveRecord::Schema.define(version: 2021_03_03_122305) do
 
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "product_img_file_name"
+    t.string "product_img_content_type"
+    t.bigint "product_img_file_size"
+    t.datetime "product_img_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,6 @@
 <%= form_for(@product) do |form| %>
+  <%= form.file_field :product_img %>
+
   <%= form.label :title %>
   <%= form.text_field :title %>
 

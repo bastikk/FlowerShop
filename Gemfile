@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.7'
 gem "devise"
 gem "role_model"
 gem "bootstrap-sass"
-gem 'simplecov', require: false, group: :test
+gem "simplecov", require: false, group: :test
+gem "paperclip"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
