@@ -4,6 +4,8 @@ class User < ApplicationRecord
   include RoleModel
   after_initialize :init
 
+  has_many :reviews
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,6 +14,6 @@ class User < ApplicationRecord
   roles :admin, :customer
 
   def init
-    self.roles <<:customer
+    self.roles << :customer
   end
 end
