@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_145507) do
+ActiveRecord::Schema.define(version: 2021_03_03_184847) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_145507) do
     t.string "product_img_content_type"
     t.bigint "product_img_file_size"
     t.datetime "product_img_updated_at"
+    t.float "average_rating"
   end
 
   create_table "reviews", force: :cascade do |t|

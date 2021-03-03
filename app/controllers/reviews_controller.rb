@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
+      @product.update_rating
       redirect_to product_path(@product)
     else
       render 'new'
@@ -24,6 +25,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+    @product.update_rating
 
     redirect_to product_path(@product)
   end
