@@ -7,7 +7,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @review = Review.new
+  end
 
   def new
     @product = Product.new
@@ -53,6 +55,8 @@ class ProductsController < ApplicationController
       unless current_user.has_role? :admin
         render 'errors/401'
       end
+    else
+      render 'errors/401'
     end
   end
 end
