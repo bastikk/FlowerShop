@@ -1,3 +1,4 @@
 <h1>Edit product</h1>
+<%= image_tag @product.product_img.url %>
 <%= render "form" %>
 <%= button_to "Back", product_path(@product), method: :get %>
