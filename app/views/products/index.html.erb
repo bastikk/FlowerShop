@@ -2,6 +2,7 @@
   <div class="table-of-contents">
     <h3><%= link_to product.title, product_path(product) %></h3>
     <%= product.average_rating %>
+    <%= product.category %>
     <p><%= product.description %></p>
     <%= image_tag product.product_img.url %>
   </div>

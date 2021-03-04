@@ -3,6 +3,7 @@
 From: <%= @product.reviews.count %> reviews
 <%= image_tag @product.product_img.url %>
 <p><%= @product.description %></p>
+<%= @product.category %>
 
 <% if user_signed_in? && (current_user.has_role? :admin) %>
   <%= button_to "Edit", edit_product_path(@product), method: :get %>
