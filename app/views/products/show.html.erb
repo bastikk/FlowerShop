@@ -1,6 +1,6 @@
 <h3><%= @product.title %></h3>
-<h4>Average rating: <%= @average_review %></h4>
-From: <%= @product.average_rating %> reviews
+<h4>Average rating: <%= @product.average_rating %></h4>
+From: <%= @product.reviews.count %> reviews
 <%= image_tag @product.product_img.url %>
 <p><%= @product.description %></p>
 
