@@ -1,0 +1,110 @@
+html, body {
+  background-color: var(--background-color) !important;
+  //background: url("/images/background.png");
+}
+
+.shop-navbar {
+  width: 100%;
+  padding: 0px !important;
+  position: absolute !important;
+  top: 30px;
+  background-color: var(--main-color) !important;
+  color: var(--secondary-color);
+  height: var(--navbar-height);
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.shop-navbar.fixed {
+  position: fixed !important;
+  top: 0px !important;
+}
+
+ul.horizontal-list {
+  margin-bottom: 0px;
+}
+
+.horizontal-list li {
+  list-style: none;
+}
+
+.link-item {
+  text-transform: uppercase;
+  padding-right: 30px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.link-item a {
+  text-decoration: none !important;
+  border-radius: 0px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.5s;
+}
+
+.link-item a:hover {
+  border-bottom: 2px solid var(--simple-color);
+}
+
+.icon-button {
+  padding: 0px 5px;
+  margin: 0px 10px;
+  font-size: 25px;
+  transition: background-color 0.5s, box-shadow 0.5s;
+  cursor: pointer;
+  border-radius: 2px;
+  position: relative;
+}
+
+.icon-button:hover {
+  background-color: var(--simple-color);
+  box-shadow: 0 0 5px 1px rgba(0, 0,0, 0.1);
+}
+
+.shop-modal {
+  background-color: var(--background-color) !important;
+}
+
+.form-info-icon i, .form-info-icon svg {
+  color: var(--main-color);
+  font-size: 23px;
+}
+
+.shop-slider {
+  height: 65vh;
+  overflow: hidden;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.shop-slider .carousel-indicators li {
+  cursor: pointer;
+}
+
+.category {
+  height: 250px;
+  background: var(--main-color);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.category-image {
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  transition: background-size 0.5s;
+  background-repeat: no-repeat !important;
+}
+
+.category-image:hover {
+  background-size: 120% 120% !important;
+}
+
+.category-title {
+  color: white;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+footer {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  height: 60px;
+}

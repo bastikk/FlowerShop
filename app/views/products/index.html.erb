@@ -1,3 +1,5 @@
+<%= render "slider" %>
+
 <% @products.each do |product| %>
   <div class="table-of-contents">
     <h3><%= link_to product.title, product_path(product) %></h3>
@@ -7,3 +9,42 @@
     <%= image_tag product.product_img.url %>
   </div>
 <% end %>
+
+<div class="full-width content-alignment-center vmargin-20 large-header">Оберіть категорію</div>
+
+<div class="container vmargin-20">
+  <div class="row">
+    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
+      <div class="category hflex">
+        <div class="col-6 full-height category-image" style="background: url('/images/categories/rose.png')"></div>
+        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+          <p>Троянди</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
+      <div class="category hflex">
+        <div class="col-6 full-height category-image" style="background: url('/images/categories/peony.png')"></div>
+        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+          <p>Півонії</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
+      <div class="category hflex">
+        <div class="col-6 full-height category-image" style="background: url('/images/categories/daisy.png')"></div>
+        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+          <p>Ромашки</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
+      <div class="category hflex">
+        <div class="col-6 full-height category-image" style="background: url('/images/categories/cloves.png')"></div>
+        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+          <p>Гвоздики</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

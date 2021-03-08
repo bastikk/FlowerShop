@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem "devise"
 gem "role_model"
 gem "bootstrap-sass"
+gem "font-awesome-rails"
 gem "simplecov", require: false, group: :test
 gem "paperclip"
 

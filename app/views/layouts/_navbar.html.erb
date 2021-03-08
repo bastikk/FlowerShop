@@ -1,0 +1,38 @@
+<nav class='shop-navbar fixed'>
+  <div class="container full-height hflex">
+    <div class='full-height vflex-center'>
+      <ul class="horizontal-list hflex no-padding">
+        <li class="link-item">
+          <a href="javascript:void(0)" class="color-wh">Головна</a>
+        </li>
+        <li class="link-item">
+          <a href="javascript:void(0)" class="color-wh">Категорії</a>
+        </li>
+        <li class="link-item">
+          <a href="javascript:void(0)" class="color-wh">Контакти</a>
+        </li>
+      </ul>
+    </div>
+    <div class="full-height vflex-center full-flex">
+      <div class='horizontal-list hflex-end'>
+        <% if user_signed_in? %>
+          <% if current_user.has_role? :admin %>
+            <li class="link-item"><%= link_to 'Create new product', new_product_path %></li>
+          <% end %>
+          <li class="link-item"><%= link_to "Settings", edit_user_registration_path %></li>
+          <li class="link-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <div class="link-item icon-button">
+            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>
+          </div>
+          <div class="link-item icon-button">
+            <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
+              <span class="data-products-quantity">10</span>
+            </div>
+            <i class="color-wh fas fa-shopping-cart"></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
