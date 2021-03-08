@@ -10,24 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree ./general
+ *= require_tree ./includes
  *= require_self
  */
-
-nav {
-  box-shadow: 0 1px 2px 0 rgba(82, 158, 204, 0.22);
-  box-color: #529ECC;
-  background: #529ECC;
-
-  .navbar-brand {
-    a {
-      color: #529ECC;
-      font-weight: bold;
-      font-size: 1.6em;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-}

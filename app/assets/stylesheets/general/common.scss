@@ -1,0 +1,157 @@
+.vflex, .hflex, .vflex-start, .hflex-start, .vflex-center, .hflex-center, .vflex-end, .hflex-end {
+  display: flex;
+}
+
+.vflex, .vflex-start, .vflex-center, .vflex-end {
+  flex-direction: column;
+}
+
+.hflex, .hflex-start, .hflex-center, .hflex-end {
+  flex-direction: row;
+}
+
+.vflex-start, .hflex-start {
+  justify-content: flex-start;
+}
+
+.vflex-center, .hflex-center {
+  justify-content: center;
+}
+
+.vflex-end, .hflex-end {
+  justify-content: flex-end;
+}
+
+.full-flex {
+  flex-grow: 1;
+}
+
+.color-wh {
+  color: white !important;
+}
+
+.full-height {
+  overflow: auto;
+  height: 100%;
+}
+
+.full-width {
+  overflow: auto;
+  width: 100%;
+}
+
+.no-border {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.bordered-bottom {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--main-color);
+  transition: border-bottom-color 0.5s;
+}
+
+.bordered-bottom:focus {
+  outline: none;
+  border-bottom-color: var(--dark-main-color)
+}
+
+.vmargin-5 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.vmargin-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.vmargin-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.hmargin-5 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.hmargin-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.hmargin-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.vpadding-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.vpadding-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hpadding-5 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.hpadding-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.red-circle {
+  background-color: var(--dark-danger);
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.circle-small {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+}
+
+.display-rt {
+  position: absolute;
+  right: 0px;
+  top: 0px
+}
+
+.parallax-element {
+  background-attachment: fixed !important;
+}
+
+.cover-background {
+  background-size: cover !important;
+}
+
+.content-alignment-center {
+  text-align: center;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.large-header {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--main-color)
+}
