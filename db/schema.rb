@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2021_03_13_161652) do
     t.datetime "category_img_updated_at"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "delivery_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
