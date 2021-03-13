@@ -47,16 +47,20 @@
   border-bottom: none !important;
 }
 
-.bordered-bottom {
+.bordered-bottom, .bordered-bottom-constantly {
   background-color: transparent;
   border: none;
   border-bottom: 1.5px solid var(--main-color);
   transition: border-bottom-color 0.5s;
 }
 
-.bordered-bottom:focus {
+.bordered-bottom:focus, .bordered-bottom-constantly:focus {
   outline: none;
   border-bottom-color: var(--dark-main-color)
+}
+
+.bordered-bottom-constantly {
+  border-bottom-color: var(--dark-main-color);
 }
 
 .vmargin-5 {
@@ -74,6 +78,16 @@
   margin-bottom: 20px;
 }
 
+.vmargin-40 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.vmargin-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .hmargin-5 {
   margin-left: 5px;
   margin-right: 5px;
@@ -89,6 +103,16 @@
   margin-right: 20px;
 }
 
+.hmargin-40 {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.hmargin-50 {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .vpadding-5 {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -99,6 +123,21 @@
   padding-bottom: 10px;
 }
 
+.vpadding-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.vpadding-40 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.vpadding-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .hpadding-5 {
   padding-left: 5px;
   padding-right: 5px;
@@ -107,6 +146,21 @@
 .hpadding-10 {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.hpadding-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hpadding-40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.hpadding-50 {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .red-circle {
@@ -137,8 +191,16 @@
   background-size: cover !important;
 }
 
+.content-alignment-left {
+  text-align: left;
+}
+
 .content-alignment-center {
   text-align: center;
+}
+
+.content-alignment-right {
+  text-align: right;
 }
 
 .no-padding {
@@ -154,4 +216,17 @@
   text-transform: uppercase;
   font-weight: 500;
   color: var(--main-color)
+}
+
+.crop-element {
+  overflow: hidden;
+}
+
+.bottom-fix {
+  position: fixed;
+  bottom: 0;
+}
+
+.rot90 {
+  transform: rotate(90deg);
 }
