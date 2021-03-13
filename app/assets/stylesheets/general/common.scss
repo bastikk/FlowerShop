@@ -230,3 +230,9 @@
 .rot90 {
   transform: rotate(90deg);
 }
+
+.text-truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
