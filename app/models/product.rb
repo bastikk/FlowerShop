@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :reviews
-  # belongs_to :category
+  belongs_to :category
+  has_and_belongs_to_many :orders
 
   has_attached_file :product_img
   validates_attachment_content_type :product_img, content_type: /\Aimage\/.*\z/
