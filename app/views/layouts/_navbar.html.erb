@@ -1,5 +1,5 @@
 <nav class='shop-navbar fixed'>
-  <div class="container full-height hflex">
+  <div class="hpadding-50 full-height hflex">
     <div class='full-height vflex-center'>
       <ul class="horizontal-list hflex no-padding">
         <li class="link-item">
@@ -10,6 +10,9 @@
         </li>
         <li class="link-item">
           <a href="javascript:void(0)" class="color-wh">Контакти</a>
+        </li>
+        <li class="link-item">
+          <a href="javascript:void(0)" class="color-wh">Про нас</a>
         </li>
       </ul>
     </div>
@@ -22,9 +25,11 @@
           <li class="link-item"><%= link_to "Settings", edit_user_registration_path %></li>
           <li class="link-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <div class="link-item icon-button">
-            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>
-          </div>
+<!--          <div class="link-item icon-button">-->
+<!--            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>-->
+<!--          </div>-->
+          <%= link_to "Register", new_user_registration_path %>
+          <%= link_to "Log in", new_user_session_path %>
           <div class="link-item icon-button">
             <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
               <span class="data-products-quantity">10</span>

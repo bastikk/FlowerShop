@@ -1,47 +1,94 @@
 <%= render "slider" %>
 
-<% @products.each do |product| %>
-  <div class="table-of-contents">
-    <h3><%= link_to product.title, product_path(product) %></h3>
-    <%= product.average_rating %>
-    <%= product.category %>
-    <p><%= product.description %></p>
-    <%= image_tag product.product_img.url %>
-  </div>
-<% end %>
+<%# @products.each do |product| %>
+<!--  <div class="table-of-contents">-->
+<!--    <h3><%#= link_to product.title, product_path(product) %></h3>-->
+    <%#= product.average_rating %>
+<!--    <p><%#= product.description %></p>-->
+    <%#= image_tag product.product_img.url %>
+<!--  </div>-->
+<%# end %>
 
 <div class="full-width content-alignment-center vmargin-20 large-header">Оберіть категорію</div>
 
-<div class="container vmargin-20">
+<div class="categories-list hpadding-50 vmargin-20">
   <div class="row">
-    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
-      <div class="category hflex">
-        <div class="col-6 full-height category-image" style="background: url('/images/categories/rose.png')"></div>
-        <div class="col-6 category-title full-height vflex-center content-alignment-center">
-          <p>Троянди</p>
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/rose.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
+          <p>Тюльпани</p>
         </div>
       </div>
     </div>
-    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
-      <div class="category hflex">
-        <div class="col-6 full-height category-image" style="background: url('/images/categories/peony.png')"></div>
-        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/peony.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
           <p>Півонії</p>
         </div>
       </div>
     </div>
-    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
-      <div class="category hflex">
-        <div class="col-6 full-height category-image" style="background: url('/images/categories/daisy.png')"></div>
-        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/daisy.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
           <p>Ромашки</p>
         </div>
       </div>
     </div>
-    <div class="category-container col-xs-12 col-md-6 vpadding-10 hpadding-10">
-      <div class="category hflex">
-        <div class="col-6 full-height category-image" style="background: url('/images/categories/cloves.png')"></div>
-        <div class="col-6 category-title full-height vflex-center content-alignment-center">
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/cloves.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
+          <p>Гвоздики</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/rose.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
+          <p>Тюльпани</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/peony.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
+          <p>Півонії</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/daisy.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
+          <p>Ромашки</p>
+        </div>
+      </div>
+    </div>
+    <div class="category-container col-12 col-md-4 col-lg-4 vpadding-10 hpadding-10">
+      <div class="category vflex full-height">
+        <div class="crop-element full-height">
+          <div class="full-height category-image" style="background: url('/images/categories/cloves.png')"></div>
+        </div>
+        <div class="category-title vflex-center content-alignment-center vpadding-40">
           <p>Гвоздики</p>
         </div>
       </div>
