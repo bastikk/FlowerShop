@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 2021_03_07_190258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "delivery_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -24,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_190258) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.string "surname"
-    t.string "phone_number"
+    t.string "phoneNumber"
     t.string "address"
     t.bigint "delivery_type_id", null: false
     t.bigint "payment_type_id", null: false
