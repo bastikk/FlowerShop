@@ -1,0 +1,21 @@
+<%
+  def get_stars_parts(rating)
+    @full = rating.truncate()
+    @half = 0
+    @empty = 5 - (rating.ceil)
+
+    @rest = rating - @full
+
+    if @rest > 0
+      if @rest <= 0.33
+        @empty += 1
+      elsif @rest <= 0.66
+        @half += 1
+      else
+        @full += 1
+      end
+    end
+
+    return @full, @half, @empty
+  end
+%>

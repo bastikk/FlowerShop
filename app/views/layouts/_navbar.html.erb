@@ -1,12 +1,20 @@
-<nav class='shop-navbar fixed'>
-  <div class="hpadding-50 full-height hflex">
-    <div class='full-height vflex-center'>
-      <ul class="horizontal-list hflex no-padding">
+<nav class='shop-navbar fixed over-visible'>
+  <div class="hpadding-50 full-height hflex over-visible">
+    <div class='full-height vflex-center over-visible'>
+      <ul class="horizontal-list hflex no-padding over-visible">
         <li class="link-item">
-          <a href="javascript:void(0)" class="color-wh">Головна</a>
+          <%= link_to "Головна", "/", class: "color-wh" %>
         </li>
-        <li class="link-item">
-          <a href="javascript:void(0)" class="color-wh">Категорії</a>
+        <li class="link-item dropdown over-visible">
+          <a href="javascript:void(0)" class="color-wh dropdown-toggle" id="categories-dropdown" data-toggle="dropdown" aria-expanded="false">
+            Категорії <i class="fas fa-chevron-down" style="font-size: 15px"></i>
+          </a>
+          <div class="navbar-dropdown dropdown-menu no-padding" aria-labelledby="categories-dropdown">
+            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Троянди</a>
+            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Ромашки</a>
+            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Півонії</a>
+            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Гвоздики</a>
+          </div>
         </li>
         <li class="link-item">
           <a href="javascript:void(0)" class="color-wh">Контакти</a>
@@ -20,23 +28,47 @@
       <div class='horizontal-list hflex-end'>
         <% if user_signed_in? %>
           <% if current_user.has_role? :admin %>
-            <li class="link-item"><%= link_to 'Create new product', new_product_path %></li>
+
+            <div class="link-item icon-button" title="Додати товар">
+              <%= link_to new_product_path do %>
+                <i class="color-wh fas fa-plus"></i>
+              <% end %>
+            </div>
           <% end %>
-          <li class="link-item"><%= link_to "Settings", edit_user_registration_path %></li>
-          <li class="link-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+
+          <div class="link-item icon-button" title="Налаштування">
+            <%= link_to edit_user_registration_path do %>
+              <i class="color-wh fas fa-cog"></i>
+            <% end %>
+          </div>
+
+          <div class="link-item icon-button" title="Вихід">
+            <%= link_to destroy_user_session_path, method: :post do %>
+              <i class="color-wh fas fa-sign-out-alt"></i>
+            <% end %>
+          </div>
+
         <% else %>
+          <div class="link-item icon-button" title="Зареєструватись">
+            <%= link_to new_user_registration_path do %>
+              <i class="color-wh fas fa-user-edit"></i>
+            <% end %>
+          </div>
+          <div class="link-item icon-button" title="Увійти">
+            <%= link_to new_user_session_path do %>
+              <i class="color-wh fas fa-user-alt"></i>
+            <% end %>
+          </div>
 <!--          <div class="link-item icon-button">-->
 <!--            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>-->
 <!--          </div>-->
-          <%= link_to "Register", new_user_registration_path %>
-          <%= link_to "Log in", new_user_session_path %>
-          <div class="link-item icon-button">
-            <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
-              <span class="data-products-quantity">10</span>
-            </div>
-            <i class="color-wh fas fa-shopping-cart"></i>
-          </div>
         <% end %>
+        <div class="link-item icon-button">
+          <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
+            <span class="data-products-quantity">10</span>
+          </div>
+          <i class="color-wh fas fa-shopping-cart"></i>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,10 @@
 html, body {
   background-color: var(--background-color) !important;
-  //background: url("/images/background.png");
+}
+
+.content {
+  padding-top: var(--navbar-height);
+  padding-bottom: var(--footer-height);
 }
 
 .shop-navbar {
@@ -22,6 +26,28 @@ html, body {
 
 ul.horizontal-list {
   margin-bottom: 0px;
+}
+
+.navbar-dropdown {
+  background-color: var(--main-color) !important;
+  border-radius: 0px !important;
+}
+
+.categories-dropdown-item {
+  color: white !important;
+  padding: 1px 10px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  transition: background-color 0.5s !important;
+}
+
+.categories-dropdown-item:hover {
+  background-color: var(--dark-main-color) !important;
+  border-bottom-color: transparent !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
 }
 
 .horizontal-list li {
@@ -48,7 +74,7 @@ ul.horizontal-list {
 
 .icon-button {
   padding: 0px 5px;
-  margin: 0px 10px;
+  margin: 0px 5px;
   font-size: 25px;
   transition: background-color 0.5s, box-shadow 0.5s;
   cursor: pointer;
@@ -80,10 +106,6 @@ ul.horizontal-list {
   cursor: pointer;
 }
 
-.categories-list {
-  margin-bottom: var(--footer-height);
-}
-
 .category-container {
   max-height: 250px;
 }
@@ -92,17 +114,6 @@ ul.horizontal-list {
   background: var(--main-color);
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
-
-.category-image {
-  background-size: cover !important;
-  background-position: center center !important;
-  transition: transform 0.5s;
-  background-repeat: no-repeat !important;
-}
-
-.category-image:hover {
-  transform: scale(1.1);
 }
 
 .category-title {
@@ -122,10 +133,6 @@ footer {
   font-size: 17px;
 }
 
-.site-content {
-  margin-top: var(--navbar-height);
-}
-
 .category-item {
   text-transform: uppercase;
   background-color: var(--main-color);
@@ -134,10 +141,12 @@ footer {
   font-weight: 500;
   font-size: 20px;
   cursor: pointer;
+  transition: all 0.5s;
 }
 
-.category-item.selected {
+.category-item.selected, .category-item:hover {
   background-color: var(--dark-main-color);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3) !important;
 }
 
 .options-icon {
@@ -154,4 +163,40 @@ footer {
 
 .options-icon.active {
   background-color: var(--dark-main-color);
+}
+
+.title-font-size {
+  font-size: 20px;
+}
+
+.product-title {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.product-rating {
+  color: #F2C94C;
+}
+
+.existence-state {
+  font-size: 15px !important;
+}
+
+.cart-icon {
+  font-size: 25px;
+}
+
+.favorite-block {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid var(--main-color);
+  color: #CE0262;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: -20px;
+  z-index: 1000;
+  cursor: pointer;
 }
