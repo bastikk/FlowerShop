@@ -12,16 +12,23 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @products = {}
+    @orders_products = {Product.last => 2}
+
+    @delivery_types = DeliveryType.all
+    @payment_types = PaymentType.all
   end
 
   def create
-    @order = Order.new(order_params)
-    # @products.each { |key, value| OrderProduct.new({:order_id => @order.id, :product_id => key.id, :amount => value}) }
-    if @order.save
-      redirect_to root_path
-    else
-      render :new
+    @orders_products = {Product.last => 2}
+    begin
+      ActiveRecord::Base.transaction do
+        @order = Order.create!(order_params)
+        @orders_products.each { |key, value| OrdersProduct.create!({:order_id => @order.id, :product_id => key.id, :amount => value}) }
+        redirect_to root_path
+      end
+    rescue => e
+      flash[:warning] = 'Something went wrong.'
+      redirect_to orders_new_path
     end
   end
 
