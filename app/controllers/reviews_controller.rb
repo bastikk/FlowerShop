@@ -1,13 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :find_product
-  before_action :authenticate
+  before_action :authenticate_user!, only: :create
+  before_action :authenticate, only: [:destroy]
 
-  def show
 
-  end
+  def show; end
 
-  def index
-  end
+  def index; end
 
   def create
     @review = Review.new(review_params)
@@ -41,6 +40,13 @@ class ReviewsController < ApplicationController
   end
 
   def authenticate
-    render 'errors/401' unless authenticate_user!
+    if authenticate_user!
+      unless current_user.has_role? :admin
+        render 'errors/401'
+      end
+    else
+      render 'errors/401'
+    end
   end
+
 end

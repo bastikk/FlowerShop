@@ -137,12 +137,41 @@ def create_user
   user.roles <<:admin
   user.save
 
-  visit '/'
-  click_link 'Sign out'
+  # visit '/'
+  # click_link 'Sign out'
+  #
+  # click_link 'Log in'
+  # fill_in 'Email', with: 'a1a1a1@gmail.com'
+  # fill_in 'Password', with: 'a1a1a1'
+  # click_button 'Log in'
+  # User.first
+end
 
-  click_link 'Log in'
-  fill_in 'Email', with: 'a1a1a1@gmail.com'
-  fill_in 'Password', with: 'a1a1a1'
-  click_button 'Log in'
-  User.first
+feature 'Order' do
+  scenario "order_creation" do
+    create_user
+    @d=DeliveryType.new({:name=>"delivery"})
+    @d.save
+
+    @p=PaymentType.new({:name=>"payment"})
+    @p.save
+
+    @order= Order.new({:name=>"name",:surname=>"surname",:phone_number=>"066",:address=>"some",:payment_type_id=>@p.id})
+    @d.orders<<@order
+
+    @order.save!
+
+
+    @category=Category.new({:name=>"category"})
+    @category.save!
+
+    @product=Product.new({:title=>"Cool title",:category_id=>@category.id})
+    @product.save!
+
+
+    @op=OrdersProduct.new({:amount=>3,:order_id=>@order.id,:product_id=>@product.id})
+    @op.save!
+
+    p @order.orders_products
+    end
 end

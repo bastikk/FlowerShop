@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create]
+  before_action :authenticate, only: [:new,:create]
 
   def index
     @categories = Category.all
@@ -31,5 +31,15 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:name, :category_img)
+  end
+
+  def authenticate
+    if authenticate_user!
+      unless current_user.has_role? :admin
+        render 'errors/401'
+      end
+    else
+      render 'errors/401'
+    end
   end
 end
