@@ -1,0 +1,30 @@
+#slider, #slider .ui-slider-range {
+  background-color: var(--dark-main-color);
+  border-radius: 6px;
+  border: none;
+  height: 7px;
+}
+
+#slider .ui-slider-handle {
+  width: 25px;
+  background-color: var(--main-color);
+  border-radius: 6px;
+  height: 11px;
+  top: 0px;
+  border: none;
+  cursor: pointer;
+  top: -2px;
+}
+
+#slider .ui-slider-handle:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px black;
+}
+
+.slider-data {
+  margin: 0px 10px;
+  max-width: 50px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--main-color);
+  text-align: center;
+}

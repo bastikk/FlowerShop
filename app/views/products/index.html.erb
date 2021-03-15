@@ -1,8 +1,94 @@
-<% @products.each do |product| %>
-  <div class="table-of-contents">
-    <h3><%= link_to product.title, product_path(product) %></h3>
-    <%= product.average_rating %>
-    <p><%= product.description %></p>
-    <%= image_tag product.product_img.url %>
+<%= render '/functions/general' %>
+
+<div class="products-content vpadding-5 hpadding-50 hflex">
+  <div class="col-md-2 col-sm-3 no-padding">
+    <div class="categories-list vflex">
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Тюльпани</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5 selected">Півонії</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Гвоздики</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Ромашки</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Тюльпани</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Півонії</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Гвоздики</div>
+      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Ромашки</div>
+    </div>
   </div>
-<% end %>
+  <div class="col-md-10 col-sm-9 vpadding-5">
+
+    <div class="filter-area hflex full-width over-visible">
+      <div price-slider range-min="0" range-max="1000" class="price-slider full-flex vflex hpadding-10">
+        <%= render "price_slider" %>
+      </div>
+      <div class="search hflex hpadding-10 pt-10">
+        <i class="fas fa-search full-height full-height rot90" style="font-size: 20px; color: var(--dark-main-color)"></i>
+        <input type="text" class="bordered-bottom-constantly hpadding-5" />
+      </div>
+      <div class="sorting-area vflex-end hpadding-5">
+        <%= render "custom_select" %>
+      </div>
+      <div class="view-mode hflex pt-10">
+        <button type="button" class="view-mode-trigger options-icon hmargin-5 active"><i class="fas fa-th"></i></button>
+        <button type="button" class="view-mode-trigger options-icon hmargin-5"><i class="fas fa-list"></i></button>
+      </div>
+    </div>
+
+    <div class="products-area vmargin-20">
+      <div class="row">
+
+      <% @products.each do |product| %>
+
+        <div class="product-container hpadding-5 vmargin-20 col-lg-3 col-md-4 col-sm-6">
+          <div class="product-content border-simple-20 crop-element">
+            <div class="favorite-block vflex-center">
+<!--              <i class="fas fa-heart"></i>-->
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="crop-element ratio-1-1">
+              <div class="full-width full-height responsive-bg-img scalable-bg-img" style="background-image: url('<%= product.product_img.url %>')"></div>
+            </div>
+            <div class="product-info-area hpadding-10 vpadding-5">
+              <div class="product-title title-font-size text-truncate"><%= product.title %></div>
+              <div class="product-rates hflex">
+                <div class="full-flex title-font-size">
+                  50<sup>00</sup> ₴
+                </div>
+                <div class="rating-area vflex-center">
+                  <div class="product-rating hflex">
+
+                    <% full, half, empty = get_stars_parts(product.average_rating) %>
+
+                    <% (0..(full-1)).each do |i| %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+
+                    <% (0..(half-1)).each do |i| %>
+                      <i class="fas fa-star-half-alt"></i>
+                    <% end %>
+
+                    <% (0..(empty-1)).each do |i| %>
+                      <i class="far fa-star"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="product-bought-area hflex vmargin-5">
+                <div class="vflex-center">
+                  <div class="badge badge-success existence-state">
+                    Є в наявності
+                  </div>
+                </div>
+                <div class="cart-icon full-flex hflex-end" style="color: var(--dark-main-color)">
+                  <i class="fas fa-cart-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
