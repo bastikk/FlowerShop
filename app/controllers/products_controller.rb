@@ -18,6 +18,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.availability=true
+    @product.average_rating=5
     if @product.save
       redirect_to product_path(@product)
     else
@@ -44,7 +46,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :category_id, :product_img)
+    params.require(:product).permit(:title, :description, :category_id, :price, :product_img)
   end
 
   def find_product
