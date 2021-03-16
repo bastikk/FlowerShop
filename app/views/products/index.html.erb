@@ -1,10 +1,10 @@
 <%= render '/functions/general' %>
 
-<div class="products-content vpadding-5 hpadding-50 hflex">
+<div class="products-content vpadding-5 hflex">
   <div class="col-md-2 col-sm-3 no-padding">
-    <div class="categories-list vflex">
+    <div class="categories-list vflex shadow-gray">
       <% @categories.each do |category| %>
-        <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5"><%= category.name %></div>
+        <div class="text-truncate data-category category-item vpadding-5 hpadding-20"><%= category.name %></div>
       <% end %>
     </div>
   </div>
@@ -45,7 +45,8 @@
               <div class="product-title title-font-size text-truncate"><%= link_to product.title, product_path(product) %></div>
               <div class="product-rates hflex">
                 <div class="full-flex title-font-size">
-                  50<sup>00</sup> грн
+                  <% priceFull, priceDecimals = format_price product.price %>
+                  <%= priceFull %><sup><%= priceDecimals %></sup> грн.
                 </div>
                 <div class="rating-area vflex-center">
                   <div class="product-rating hflex">
@@ -68,13 +69,21 @@
               </div>
               <div class="product-bought-area hflex vmargin-5">
                 <div class="vflex-center">
-                  <div class="badge badge-success existence-state">
-                    Є в наявності
+                  <% if product.availability %>
+                    <div class="badge badge-success existence-state">
+                      Є в наявності
+                    </div>
+                  <% else %>
+                    <div class="badge badge-danger existence-state">
+                      Немає в наявності
+                    </div>
+                  <% end %>
+                </div>
+                <% if product.availability %>
+                  <div class="cart-icon full-flex hflex-end" style="color: var(--dark-main-color)">
+                    <i class="fas fa-cart-plus"></i>
                   </div>
-                </div>
-                <div class="cart-icon full-flex hflex-end" style="color: var(--dark-main-color)">
-                  <i class="fas fa-cart-plus"></i>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>

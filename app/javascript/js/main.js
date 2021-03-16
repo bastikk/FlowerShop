@@ -46,7 +46,7 @@ for (let i = 0; i < categories.length; i++) {
     let category = categories[i];
     category.addEventListener("click", function() {
         let selectedCategory = document.querySelector(".data-category.selected");
-        selectedCategory.classList.remove("selected");
+        selectedCategory?.classList.remove("selected");
 
         this.classList.add("selected");
     });

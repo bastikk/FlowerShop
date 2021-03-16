@@ -18,4 +18,17 @@
 
     return @full, @half, @empty
   end
+
+  def format_price(price)
+    full = price.truncate()
+    decimals = ((price - full)*100).truncate
+    return full, addZeroToBegin(decimals)
+  end
+
+  def addZeroToBegin(number)
+    if (number < 10)
+      return "0" + number.to_s
+    end
+    return number
+  end
 %>
