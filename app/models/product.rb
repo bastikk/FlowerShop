@@ -11,11 +11,11 @@ class Product < ApplicationRecord
 
   def update_rating
     if self.reviews.blank?
-      average_review = 0
+      average_review = 5
     else
       average_review = self.reviews.average(:rating).round(2)
     end
     self.average_rating = average_review
-    self.save
+    @check=self.save
   end
 end

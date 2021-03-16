@@ -11,7 +11,7 @@
             <div class="full-height responsive-bg-img scalable-bg-img category-image" style="background: url('<%= category.category_img.url %>')"></div>
           </div>
           <div class="category-title vflex-center content-alignment-center vpadding-10 text-truncate">
-            <p class="no-margin"><%= category.name %></p>
+            <p class="no-margin"><%= link_to category.name, products_path %></p>
           </div>
         </div>
       </div>
