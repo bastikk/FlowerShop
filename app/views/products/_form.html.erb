@@ -1,17 +1,19 @@
 <%= form_for(@product) do |form| %>
   <%= form.file_field :product_img %>
 
-  <%= form.label :title %>
+  <%= form.label :Назва  %>
   <%= form.text_field :title %>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-
-  <%= form.label :category_id %>
+  <%= form.label 'Номер категорії' %>
   <%= form.number_field :category_id %>
 
-  <%= form.label :price %>
+  <%= form.label :Ціна %>
   <%= form.number_field :price %>
 
+  <br>
+  <%= form.label :Опис %>
+  <%= form.text_area :description, style: "width:600px; height:150px;"%>
+
+  <br>
   <%= form.submit%>
 <% end %>

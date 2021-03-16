@@ -5,19 +5,11 @@
         <li class="link-item">
           <%= link_to "Головна", "/", class: "color-wh" %>
         </li>
-        <li class="link-item dropdown over-visible">
-          <a href="javascript:void(0)" class="color-wh dropdown-toggle" id="categories-dropdown" data-toggle="dropdown" aria-expanded="false">
-            Категорії <i class="fas fa-chevron-down" style="font-size: 15px"></i>
-          </a>
-          <div class="navbar-dropdown dropdown-menu no-padding" aria-labelledby="categories-dropdown">
-            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Троянди</a>
-            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Ромашки</a>
-            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Півонії</a>
-            <a href="javascript:void(0)" class="dropdown-item categories-dropdown-item">Гвоздики</a>
-          </div>
+        <li class="link-item">
+          <%= link_to "Каталог", products_path, class: "color-wh" %>
         </li>
         <li class="link-item">
-          <a href="javascript:void(0)" class="color-wh">Контакти</a>
+          <%= link_to "Контакти", '/contacts', class: "color-wh" %>
         </li>
         <li class="link-item">
           <a href="javascript:void(0)" class="color-wh">Про нас</a>
@@ -28,9 +20,14 @@
       <div class='horizontal-list hflex-end'>
         <% if user_signed_in? %>
           <% if current_user.has_role? :admin %>
-
             <div class="link-item icon-button" title="Додати товар">
               <%= link_to new_product_path do %>
+                <i class="color-wh fas fa-plus"></i>
+              <% end %>
+            </div>
+
+            <div class="link-item icon-button" title="Додати категорію">
+              <%= link_to new_category_path do %>
                 <i class="color-wh fas fa-plus"></i>
               <% end %>
             </div>

@@ -3,14 +3,9 @@
 <div class="products-content vpadding-5 hpadding-50 hflex">
   <div class="col-md-2 col-sm-3 no-padding">
     <div class="categories-list vflex">
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Тюльпани</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5 selected">Півонії</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Гвоздики</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Ромашки</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Тюльпани</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Півонії</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Гвоздики</div>
-      <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5">Ромашки</div>
+      <% @categories.each do |category| %>
+        <div class="text-truncate shadow-gray data-category category-item vpadding-5 hpadding-20 vmargin-5"><%= category.name %></div>
+      <% end %>
     </div>
   </div>
   <div class="col-md-10 col-sm-9 vpadding-5">
@@ -50,7 +45,7 @@
               <div class="product-title title-font-size text-truncate"><%= product.title %></div>
               <div class="product-rates hflex">
                 <div class="full-flex title-font-size">
-                  50<sup>00</sup> ₴
+                  50<sup>00</sup> грн
                 </div>
                 <div class="rating-area vflex-center">
                   <div class="product-rating hflex">
