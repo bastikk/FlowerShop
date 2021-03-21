@@ -1,0 +1,24 @@
+<div class="add-review-form">
+  <div class="hflex-end vmargin-10">
+    <div class="site-button vpadding-5 hpadding-10" data-toggle="collapse" data-target="#review-form">
+      Додати відгук
+    </div>
+  </div>
+  <div id="review-form" class="collapse frame">
+    <div class="frame-header hpadding-10 vpadding-5">
+      <h5 style="opacity: 0.7;">Написання відгуку</h5>
+    </div>
+    <%= form_for([@product, @review]) do |form| %>
+      <div class="hpadding-20 vpadding-10">
+        <% if not_rated_by_user(@product, current_user) %>
+          <%= form.number_field :rating, id: 'review-rating', class: "invisible" %>
+          <%= render "star_rating_form", target: "#review-rating" %>
+        <% end %>
+        <%= form.text_area :comment, id: 'review-content', class: 'vmargin-5 site-textarea full-width', placeholder: "Коментар" %>
+      </div>
+      <div class="frame-footer hflex-end hpadding-10 vpadding-5">
+        <%= form.submit "Додати", class: 'hpadding-10 site-button' %><br>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.stars i {
+  color: #F2C94C;
+  font-weight: 900;
+}
+
+.stars:hover i {
+  font-weight: 900 !important;
+}
+
+.stars:hover i.selected ~ i {
+  font-weight: unset;
+}
+
+.stars i:not(.empty):hover ~ i {
+  font-weight: 400 !important;
+}
+
+.stars i.selected ~ i {
+  font-weight: 400;
+}

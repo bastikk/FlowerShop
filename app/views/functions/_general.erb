@@ -31,4 +31,43 @@
     end
     return number
   end
+
+  def formatToDDMMMMYYYY(date)
+    day = date.day
+    month = date.month
+    year = date.year
+
+    return day.to_s + " " + getStringMonth(month) + " " + year.to_s
+  end
+
+  def getStringMonth(monthNumber)
+    monthNames = Array[
+      "Січня", "Лютого",
+      "Березня", "Квітня",
+      "Травня", "Червня",
+      "Липня", "Серпня",
+      "Вересня", "Жовтня",
+      "Листопада", "Грудня"
+    ]
+
+    return monthNames[monthNumber]
+  end
+
+  def get_user_review(product, user)
+    user.reviews.each do |review|
+      if review.product_id == product.id
+        return review.rating
+      end
+    end
+    return 0
+  end
+
+  def not_rated_by_user(product, user)
+    user.reviews.each do |review|
+      if review.product_id == product.id
+        return false
+      end
+    end
+    return true
+  end
 %>

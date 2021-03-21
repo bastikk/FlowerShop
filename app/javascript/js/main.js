@@ -1,3 +1,5 @@
+import "./helper-functions"
+
 (function() {
     let select = document.querySelector(".beautiful-select-wrapper");
     if (select == null) {
@@ -20,7 +22,7 @@
 
     window.addEventListener('click', function(e) {
         const select = document.querySelector('.beautiful-select')
-        if (!select.contains(e.target)) {
+        if (!select?.contains(e.target)) {
             select.classList.remove('open');
         }
     });
@@ -40,6 +42,15 @@
     });
 })();
 
+(function() {
+    let integerFields = document.querySelectorAll(".integerField");
+
+    for (let i = 0; i < integerFields.length; i++) {
+        let field = integerFields[i];
+        window.validElementValueToInteger(field);
+    }
+})();
+
 let categories = document.querySelectorAll(".data-category");
 
 for (let i = 0; i < categories.length; i++) {
@@ -51,3 +62,33 @@ for (let i = 0; i < categories.length; i++) {
         this.classList.add("selected");
     });
 }
+
+$('#recipeCarousel').carousel({
+    interval: 10000
+})
+
+$('.multi-carousel.carousel .carousel-item').each(function(){
+    var minPerSlide = 4;
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i=0;i<minPerSlide;i++) {
+        next=next.next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+
+        next.children(':first-child').clone().appendTo($(this));
+    }
+});
+
+$("[data-multi-slide='prev']").on("click", function() {
+    $("#adsCarousel").carousel("prev");
+});
+
+$("[data-multi-slide='next']").on("click", function() {
+    $("#adsCarousel").carousel("next");
+});

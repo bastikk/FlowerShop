@@ -1,0 +1,34 @@
+<div class="reviews-area vmargin-10">
+  <% @product.reviews.each do |review| %>
+    <div class="frame review vmargin-10">
+      <div class="user-data-area hflex hpadding-10 vpadding-5 frame-header">
+        <span class="fs-xs hmargin-5" style="opacity: 0.7"><%= review.user.email %>, <%= formatToDDMMMMYYYY(review.created_at) %></span>
+        <div class="vflex-center hmargin-5">
+          <div class="product-rating hflex-start fs-xs">
+            <%= render "/layouts/rating", rating: get_user_review(@product, review.user) %>
+          </div>
+        </div>
+        <% if user_signed_in? && (current_user.has_role? :admin) %>
+          <div class="full-flex hflex-end">
+            <%= link_to product_review_path(@product,review), class: "fs-md", method: :delete, data: {confirm: "Are you sure"} do %>
+              <span class="fs-xs full-flex hflex-end" style="color: #fd3995" title="Видалити">
+                <i class="clickable clickable-icon fas fa-times"></i>
+              </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="review-text-area vmargin-10 hpadding-20" style="color: black; font-size: 17px;">
+        <%= review.comment %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="make-reply hflex-end hpadding-10 vpadding-5 frame-footer">
+          <div class="full-flex"></div>
+          <div class="clickable hflex">
+            <div class="vflex-center hmargin-5"><i class="fas fa-reply"></i></div> <span>Відповісти</span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
