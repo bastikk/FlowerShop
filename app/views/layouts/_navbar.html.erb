@@ -16,7 +16,7 @@
         </li>
       </ul>
     </div>
-    <div class="full-height vflex-center full-flex">
+    <div class="over-visible full-height vflex-center full-flex">
       <div class='horizontal-list hflex-end'>
         <% if user_signed_in? %>
           <% if current_user.has_role? :admin %>
@@ -60,12 +60,7 @@
 <!--            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>-->
 <!--          </div>-->
         <% end %>
-        <div class="link-item icon-button">
-          <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
-            <span class="data-products-quantity">10</span>
-          </div>
-          <i class="color-wh fas fa-shopping-cart"></i>
-        </div>
+        <%= render "/layouts/cart" %>
       </div>
     </div>
   </div>
