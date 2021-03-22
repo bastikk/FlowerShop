@@ -163,6 +163,26 @@
   padding-right: 50px;
 }
 
+.hmargin-50n {
+  margin-right: -50px;
+  margin-left: -50px;
+}
+
+.vmargin-50n {
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
+
+.hpadding-50n {
+  padding-right: -50px;
+  padding-left: -50px;
+}
+
+.vpadding-50n {
+  padding-top: -50px;
+  padding-bottom: -50px;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -209,6 +229,10 @@
 
 .content-alignment-right {
   text-align: right;
+}
+
+.content-alignment-justify {
+  text-align: justify;
 }
 
 .no-padding {
@@ -261,6 +285,11 @@
   aspect-ratio: 1/1;
 }
 
+.ratio-3-2 {
+  aspect-ratio: 3/2;
+  background-size: cover;
+}
+
 .shadow-gray {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
 }
@@ -286,4 +315,28 @@
 
 .w-10 {
   width: 10%;
+}
+
+.fs-xl {
+  font-size: 36px;
+}
+
+.fs-lg {
+  font-size: 28px;
+}
+
+.fs-md {
+  font-size: 24px;
+}
+
+.fs-sm {
+  font-size: 18px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.invisible {
+  display: none;
 }

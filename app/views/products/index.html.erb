@@ -50,20 +50,7 @@
                 </div>
                 <div class="rating-area vflex-center">
                   <div class="product-rating hflex">
-
-                    <% full, half, empty = get_stars_parts(product.average_rating) %>
-
-                    <% (0..(full-1)).each do |i| %>
-                      <i class="fas fa-star"></i>
-                    <% end %>
-
-                    <% (0..(half-1)).each do |i| %>
-                      <i class="fas fa-star-half-alt"></i>
-                    <% end %>
-
-                    <% (0..(empty-1)).each do |i| %>
-                      <i class="far fa-star"></i>
-                    <% end %>
+                    <%= render "/layouts/rating", rating: product.average_rating %>
                   </div>
                 </div>
               </div>

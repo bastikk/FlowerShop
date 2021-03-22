@@ -1,31 +1,74 @@
-<h3><%= @product.title %></h3>
-<h4>Average rating: <%= @product.average_rating %></h4>
-From: <%= @product.reviews.count %> reviews
-<%= image_tag @product.product_img.url %>
-<p><%= @product.description %></p>
-<%= @product.category %>
+<%= render '/functions/general' %>
 
-<% if user_signed_in? && (current_user.has_role? :admin) %>
-  <%= button_to "Edit", edit_product_path(@product), method: :get %>
-  <%= button_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure"} %>
+<div class="product-content vpadding-20">
+  <div class="row">
+    <div class="product-image col-lg-4 col-xs-6 vflex">
+      <%= image_tag @product.product_img.url, class: "full-width" %>
+    </div>
+    <div class="product-details col-lg-8 col-xs-12">
+      <div class="product-options hflex">
+        <div class="product-availability full-flex">
+          <% if @product.availability %>
+            <div class="badge badge-success existence-state">
+              Є в наявності
+            </div>
+          <% else %>
+            <div class="badge badge-danger existence-state">
+              Немає в наявності
+            </div>
+          <% end %>
+        </div>
+        <% if user_signed_in? && (current_user.has_role? :admin) %>
+          <div class="product-settings fs-md">
+            <%= link_to edit_product_path(@product), class: "edit", method: :get do %>
+              <i class="clickable clickable-icon fas fa-pencil-alt" title="Редагувати"></i>
+            <% end %>
+            <%= link_to product_path(@product), class: "remove", method: :delete, data: {confirm: "Are you sure"} do %>
+              <i class="clickable clickable-icon fas fa-trash" title="Видалити"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="product-title fs-lg" style="opacity: 0.7">
+        <%= @product.title %>
+      </div>
+      <div class="product-rating hflex-start vmargin-10 fs-sm">
+        <%= render "/layouts/rating", rating: @product.average_rating %>
+      </div>
+      <div class="product-price fs-md" style="opacity: 0.7">
+        <% priceFull, priceDecimals = format_price @product.price %>
+        <%= priceFull %><sup><%= priceDecimals %></sup> грн.
+      </div>
+      <% if @product.availability %>
+        <div class="product-buy-area vpadding-10 hflex">
+          <div class="btn-group" role="group" aria-label="Кількість">
+            <div class="hpadding-5 content-alignment-center left-rounded vflex-center">
+              <i class="fas fa-minus"></i>
+            </div>
+            <input type="text" class="product-quantity fs-sm content-alignment-center integerField" style="max-width: 50px" value="0" />
+            <div class="hpadding-5 content-alignment-center right-rounded vflex-center">
+              <i class="fas fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="product-description">
+        <p class="fs-md content-alignment-justify" style="opacity: 0.7; font-size: 21px;"><%= @product.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "ads_carousel" %>
+
+<% if user_signed_in? %>
+  <%= render "review_form" %>
 <% end %>
 
-<%= form_for([@product, @review]) do |form| %>
-  <!--stars-->
-  <!--add jquery here-->
-  add jquery stars here
-  <%= form.number_field :rating %><br>
-  <%= form.text_area :comment %><br>
-  <%= form.submit %><br>
-<% end %>
+<%= render "reviews" %>
+
+<%= render "pages" %>
+
+<!--From: <%#= @product.reviews.count %> reviews-->
 
 
-<% @product.reviews.each do |review| %>
-  <% if user_signed_in? && (current_user.has_role? :admin) %>
-    <%= button_to "Delete", product_review_path(@product,review), method: :delete, data: {confirm: "Are you sure"} %>
-  <% end %>
-
-  <%= review.rating %><br>
-  <%= review.comment %><br>
-  -------------<br>
-<% end %>
