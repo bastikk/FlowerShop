@@ -1,18 +1,20 @@
-<div class="cart dropdown">
+<div id="cart" class="cart dropdown">
   <div class="link-item icon-button dropdown-toggle" data-toggle="dropdown">
-    <div class="red-circle circle-small vflex-center display-rt" style="right: -3px">
-      <span class="data-products-quantity">10</span>
-    </div>
+    <div class="countIndicator"></div>
     <i class="color-wh fas fa-shopping-cart"></i>
   </div>
   <div class="no-padding dropdown-menu dropdown-menu-right">
     <div class="cart-items-header vpadding-20">
       <div class="vflex">
-        <div class="cart-items-count hflex-center">10 товарів</div>
-        <div class="cart-items-sum hflex-center"><span>256<sup>25</sup> грн</span></div>
+        <div class="cart-items-count hflex-center"><span class="itemsTotalCount hpadding-5"></span> товарів</div>
+        <div class="cart-items-sum hflex-center">
+          <span>
+            <span class="itemsTotalPrice"></span> грн
+          </span>
+        </div>
       </div>
     </div>
-    <div class="cart-items-content">
+    <div class="cartItems cart-items-content">
       <div class="cart-item hflex hpadding-20 vpadding-10">
         <div class="cart-item-image" style="margin-right: 10px">
           <img src="/images/categories/cloves.png" alt="cloves" />

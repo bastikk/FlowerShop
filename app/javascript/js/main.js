@@ -1,5 +1,3 @@
-import "./helper-functions"
-
 (function() {
     let select = document.querySelector(".beautiful-select-wrapper");
     if (select == null) {
