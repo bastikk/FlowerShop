@@ -1,3 +1,5 @@
+import './cart-drawer'
+
 (function() {
 
     Array.prototype.syncForEach = function(callback) {

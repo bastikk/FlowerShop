@@ -15,7 +15,7 @@ import "js/helper-functions"
 import "js/main"
 import "js/star-rating"
 import "js/cart"
-import "js/cart-drawer"
+// import "js/cart-drawer"
 
 Rails.start()
 Turbolinks.start()
