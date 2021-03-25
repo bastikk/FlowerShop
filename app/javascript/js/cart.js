@@ -82,10 +82,30 @@ import './cart-drawer'
     let cart = new Cart();
 
     cart.addSubscriber(window.cartDrawer);
+    cart.addSubscriber(window.cartTableDrawer);
 
-    Object.values(document.querySelectorAll(".productEditableCount")).syncForEach(item => {
-        let id = item.getAttribute("data-id");
-        cart.addSubscriber(cart => {
+    cart.addSubscriber(cart => {
+        let totalPrice = 0;
+        let products = Object.values(cart.products);
+        for (let i = 0; i < products.length; i++) {
+            totalPrice += products[i].count*products[i].price;
+        }
+
+        let confirmButton = document.getElementById("confirm");
+        if (confirmButton != null) {
+            if (totalPrice > 0) {
+                confirmButton.disabled = false;
+            } else {
+                confirmButton.disabled = true;
+            }
+        }
+
+        Object.values(document.querySelectorAll(".cartTotalPrice")).syncForEach(item => {
+            item.innerHTML = window.formatToUserFriendlyPrice(totalPrice);
+        });
+
+        Object.values(document.querySelectorAll(".productEditableCount")).syncForEach(item => {
+            let id = item.getAttribute("data-id");
             let product = cart.products[id];
             let count = 0
             if (product != null) {
@@ -93,6 +113,10 @@ import './cart-drawer'
             }
             item.value = count*1;
         });
+    });
+
+    Object.values(document.querySelectorAll(".productEditableCount")).syncForEach(item => {
+        let id = item.getAttribute("data-id");
 
         item.addEventListener("input", function() {
             let count = this.value*1;
@@ -104,18 +128,17 @@ import './cart-drawer'
         });
     });
 
-    Object.values(document.querySelectorAll(".productIncrement")).syncForEach(item => {
-        let id = item.getAttribute("data-id");
-        item.addEventListener("click", function() {
+    document.addEventListener("click", function(event) {
+        let element = event.target;
+        if (element.closest(".productIncrement") != null) {
+            element = element.closest(".productIncrement");
+            let id = element.getAttribute("data-id");
             changeProductCountByOne(id, +1);
-        });
-    });
-
-    Object.values(document.querySelectorAll(".productDecrement")).syncForEach(item => {
-        let id = item.getAttribute("data-id");
-        item.addEventListener("click", function() {
+        } else if (element.closest(".productDecrement") != null) {
+            element = element.closest(".productDecrement");
+            let id = element.getAttribute("data-id");
             changeProductCountByOne(id, -1);
-        });
+        }
     });
 
     function changeProductCountByOne(id, value) {

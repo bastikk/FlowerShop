@@ -19,6 +19,7 @@ window.getFromLS = function(name, defaultValue) {
     return item;
 }
 window.splitPrice = function(price) {
+    price *= 1;
     price = price.toFixed(2);
     let parts = price.split(".");
     return {
@@ -30,4 +31,10 @@ window.splitPrice = function(price) {
 window.oneElementStringToHTML = function(str) {
     let parser = new DOMParser();
     return parser.parseFromString(str, "text/html").body.firstElementChild;
+}
+
+window.formatToUserFriendlyPrice = function(price) {
+    let formattedPrice = window.splitPrice(price);
+
+    return `${formattedPrice.full}<sup>${formattedPrice.fractional}</sup>`
 }

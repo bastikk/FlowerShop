@@ -340,3 +340,10 @@
 .invisible {
   display: none;
 }
+
+.label-required:before {
+  content: "*";
+  color: red;
+  font-weight: bold;
+  opacity: 0.7;
+}

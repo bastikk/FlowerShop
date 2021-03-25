@@ -1,18 +1,109 @@
-<h1>Orders#new</h1>
+<div class="vpadding-20"><h3>Оформлення замовлення</h3></div>
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
 <%= form_for(@order) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <div class="row">
+    <div class="col-lg-9 hpadding-10">
+      <div class="frame no-padding">
+        <div class="frame-header vpadding-10 fs-md" style="font-weight: 500">
+          <div class="hpadding-20">Загальна інформація</div>
+        </div>
+        <div class="vpadding-10 hpadding-20">
+          <div class="row">
+            <div class="col-md-6 vpadding-10">
+              <%= form.label "Введіть прізвище", class: "full-width no-margin label-required field-label" %>
+              <%= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище" %>
+            </div>
+            <div class="col-md-6 vpadding-10">
+              <%= form.label "Введіть ім'я", class: "full-width no-margin label-required field-label" %>
+              <%#= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище" %>
+              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваше прізвище" />
+            </div>
+            <div class="col-md-6 vpadding-10">
+              <%= form.label "Введіть номер телефону", class: "full-width no-margin label-required field-label" %>
+              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваш номер телефону" />
+            </div>
+            <div class="col-md-6 vpadding-10">
+              <%= form.label "Введіть адресу", class: "full-width no-margin label-required field-label" %>
+              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваша адреса" />
+            </div>
+            <div class="col-md-6 vpadding-10">
+              <div class="beautiful-select-wrapper">
+                <label class="full-width no-margin label-required field-label">Виберіть тип доставки</label>
+                <div class="beautiful-select">
+                  <div class="beautiful-select-trigger">
+                    <span>Нова Пошта</span>
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="custom-options">
+                    <span class="custom-option selected" data-value="by-rating">Нова Пошта</span>
+                    <span class="custom-option" data-value="from-cheap-to-expensive">УкрПошта</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 vpadding-10">
+              <div class="beautiful-select-wrapper">
+                <label class="full-width no-margin label-required field-label">Виберіть тип оплати</label>
+                <div class="beautiful-select">
+                  <div class="beautiful-select-trigger">
+                    <span>Карткою</span>
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="custom-options">
+                    <span class="custom-option selected" data-value="by-rating">Карткою</span>
+                    <span class="custom-option" data-value="from-cheap-to-expensive">Готівкою</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-products-content">
+        <div class="frame no-padding vmargin-20">
+          <div class="frame-header vpadding-10 fs-md" style="font-weight: 500">
+            <div class="hpadding-20">Корзина</div>
+          </div>
+          <div class="vpadding-10 hpadding-20">
+            <table class="full-width cart-products cartProducts">
+              <thead>
+                <tr>
+                  <th style="min-width: 40%">Товар</th>
+                  <th>Ціна</th>
+                  <th>Кількість</th>
+                  <th>Загальна сума</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 hpadding-10">
+      <div class="frame no-padding">
+        <div class="frame-header vpadding-10 fs-md" style="font-weight: 500">
+          <div class="hpadding-20 hflex">
+            <div class="full-flex total">Разом</div>
+            <div class="price">
+              <span class="cartTotalPrice">12<sup>25</sup></span> грн.</div>
+          </div>
+        </div>
+        <div class="hpadding-10 vpadding-10">
+          <%= form.submit "Підтвердити", id: "confirm", class: "full-width site-button vpadding-5 hpadding-10" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <%= form.label :delivery_type_id %>
-  <%= form.number_field :delivery_type_id %>
+  <%#= form.label :delivery_type_id %>
+  <%#= form.number_field :delivery_type_id %>
 
-  <%= form.label :payment_type_id %>
-  <%= form.number_field :payment_type_id %>
+  <%#= form.label :payment_type_id %>
+  <%#= form.number_field :payment_type_id %>
 
-  <%= form.submit%>
 <% end %>

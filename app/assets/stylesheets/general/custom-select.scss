@@ -23,7 +23,6 @@
   border-bottom: 1px solid var(--dark-main-color);
   color: var(--dark-main-color);
   cursor: pointer;
-  transition: padding 0.1s;
 }
 
 .open .beautiful-select-trigger {
@@ -43,7 +42,6 @@
   border: 2px solid var(--dark-main-color);
   border-top: 0;
   background: #fff;
-  transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
