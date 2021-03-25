@@ -13,9 +13,7 @@ import './cart-drawer'
         let subscribers = [];
 
         function Cart() {
-            this.cart = JSON.parse(window.getFromLS("cart", JSON.stringify({
-                products: {}
-            })));
+            this.initCart();
 
             this.notify();
 
@@ -26,9 +24,16 @@ import './cart-drawer'
             window.localStorage.setItem("cart", JSON.stringify(cart));
         }
 
+        Cart.prototype.initCart = function() {
+            this.cart = JSON.parse(window.getFromLS("cart", JSON.stringify({
+                products: {}
+            })));
+        }
+
         Cart.prototype.addProduct = function(product) {
             product.count *= 1;
             product.price *= 1;
+            this.initCart();
             this.cart.products[product.id] = product;
             this.notify();
         }
@@ -43,6 +48,7 @@ import './cart-drawer'
         }
 
         Cart.prototype.getProduct = function(id) {
+            this.initCart();
             let product = this.cart.products[id];
             if (typeof product === "undefined") {
                 return null;
@@ -51,6 +57,7 @@ import './cart-drawer'
         }
 
         Cart.prototype.changeProductCount = function(id, newCount) {
+            this.initCart();
             if (newCount <= 0) {
                 delete this.cart.products[id];
             } else {
