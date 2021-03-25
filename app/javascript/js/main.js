@@ -1,29 +1,38 @@
-import "./helper-functions"
-
 (function() {
-    let select = document.querySelector(".beautiful-select-wrapper");
-    if (select == null) {
-        return;
+    Array.prototype.syncForEach = function(callback) {
+        for (let i = 0; i < this.length; i++) {
+            callback(this[i]);
+        }
     }
 
-    document.querySelector('.beautiful-select-wrapper').addEventListener('click', function() {
-        this.querySelector('.beautiful-select').classList.toggle('open');
+    let selects = Object.values(document.querySelectorAll(".beautiful-select-wrapper"));
+
+    selects.syncForEach(select => {
+        if (select == null) {
+            return;
+        }
+
+        select.addEventListener('click', function() {
+            this.querySelector('.beautiful-select').classList.toggle('open');
+        });
+
+        for (const option of select.querySelectorAll(".custom-option")) {
+            option.addEventListener('click', function() {
+                if (!this.classList.contains('selected')) {
+                    this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+                    this.classList.add('selected');
+                    this.closest('.beautiful-select').querySelector('.beautiful-select-trigger span').textContent = this.textContent;
+                }
+            })
+        };
     });
 
-    for (const option of document.querySelectorAll(".custom-option")) {
-        option.addEventListener('click', function() {
-            if (!this.classList.contains('selected')) {
-                this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-                this.classList.add('selected');
-                this.closest('.beautiful-select').querySelector('.beautiful-select-trigger span').textContent = this.textContent;
-            }
-        })
-    };
-
     window.addEventListener('click', function(e) {
-        const select = document.querySelector('.beautiful-select')
-        if (!select?.contains(e.target)) {
-            select.classList.remove('open');
+        const selects = document.querySelectorAll('.beautiful-select');
+        for (let i = 0; i < selects.length; i++) {
+            if (!selects[i]?.contains(e.target)) {
+                selects[i].classList.remove('open');
+            }
         }
     });
 
@@ -43,12 +52,11 @@ import "./helper-functions"
 })();
 
 (function() {
-    let integerFields = document.querySelectorAll(".integerField");
-
-    for (let i = 0; i < integerFields.length; i++) {
-        let field = integerFields[i];
-        window.validElementValueToInteger(field);
-    }
+    document.addEventListener("input", function(event) {
+        if (event.target.closest(".integerField") != null) {
+            event.target.value = window.formatToNumber(event.target.number);
+        }
+    });
 })();
 
 let categories = document.querySelectorAll(".data-category");

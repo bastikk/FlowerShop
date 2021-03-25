@@ -1,0 +1,26 @@
+<div id="cart" class="cart dropdown">
+  <div class="link-item icon-button dropdown-toggle" data-toggle="dropdown">
+    <div class="countIndicator"></div>
+    <i class="color-wh fas fa-shopping-cart"></i>
+  </div>
+  <div class="no-padding dropdown-menu dropdown-menu-right">
+    <div class="cart-items-header vpadding-20">
+      <div class="vflex">
+        <div class="cart-items-count hflex-center"><span class="itemsTotalCount hpadding-5"></span> товарів</div>
+        <div class="cart-items-sum hflex-center">
+          <span>
+            <span class="itemsTotalPrice"></span> грн
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="cartItems cart-items-content"></div>
+    <div class="cart-footer hpadding-20">
+      <div class="hflex-end">
+        <div class="make-order-link vpadding-5">
+          <%= link_to "Оформити замовлення", new_order_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

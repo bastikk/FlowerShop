@@ -3,7 +3,7 @@
 <div class="product-content vpadding-20">
   <div class="row">
     <div class="product-image col-lg-4 col-xs-6 vflex">
-      <%= image_tag @product.product_img.url, class: "full-width" %>
+      <%= image_tag @product.product_img.url, class: "productImage full-width", "data-id": @product.id %>
     </div>
     <div class="product-details col-lg-8 col-xs-12">
       <div class="product-options hflex">
@@ -29,28 +29,18 @@
           </div>
         <% end %>
       </div>
-      <div class="product-title fs-lg" style="opacity: 0.7">
+      <div class="productTitle product-title fs-lg" style="opacity: 0.7" data-id="<%= @product.id %>">
         <%= @product.title %>
       </div>
       <div class="product-rating hflex-start vmargin-10 fs-sm">
         <%= render "/layouts/rating", rating: @product.average_rating %>
       </div>
-      <div class="product-price fs-md" style="opacity: 0.7">
+      <div class="productPrice product-price fs-md" style="opacity: 0.7" data-id="<%= @product.id %>" data-price="<%= @product.price %>">
         <% priceFull, priceDecimals = format_price @product.price %>
         <%= priceFull %><sup><%= priceDecimals %></sup> грн.
       </div>
       <% if @product.availability %>
-        <div class="product-buy-area vpadding-10 hflex">
-          <div class="btn-group" role="group" aria-label="Кількість">
-            <div class="hpadding-5 content-alignment-center left-rounded vflex-center">
-              <i class="fas fa-minus"></i>
-            </div>
-            <input type="text" class="product-quantity fs-sm content-alignment-center integerField" style="max-width: 50px" value="0" />
-            <div class="hpadding-5 content-alignment-center right-rounded vflex-center">
-              <i class="fas fa-plus"></i>
-            </div>
-          </div>
-        </div>
+        <%= render "/layouts/parts/product_quantity_buttons", product_id: @product.id %>
       <% end %>
       <div class="product-description">
         <p class="fs-md content-alignment-justify" style="opacity: 0.7; font-size: 21px;"><%= @product.description %></p>
