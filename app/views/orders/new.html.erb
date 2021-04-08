@@ -4,7 +4,7 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
-<%= form_for(@order) do |form| %>
+<%= form_for(@order, html: {class: "confirmOrder"}) do |form| %>
   <div class="row">
     <div class="col-lg-9 hpadding-10">
       <div class="frame no-padding">
@@ -20,15 +20,15 @@
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть ім'я", class: "full-width no-margin label-required field-label" %>
               <%#= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваше прізвище" />
+              <input type="text" name="surname" class="hpadding-10 full-width form-field" placeholder="Ваше прізвище" />
             </div>
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть номер телефону", class: "full-width no-margin label-required field-label" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваш номер телефону" />
+              <input type="text" name="phone-number" class="hpadding-10 full-width form-field" placeholder="Ваш номер телефону" />
             </div>
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть адресу", class: "full-width no-margin label-required field-label" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваша адреса" />
+              <input type="text" name="address" class="hpadding-10 full-width form-field" placeholder="Ваша адреса" />
             </div>
             <div class="col-md-6 vpadding-10">
               <div class="beautiful-select-wrapper">
@@ -99,11 +99,5 @@
       </div>
     </div>
   </div>
-
-  <%#= form.label :delivery_type_id %>
-  <%#= form.number_field :delivery_type_id %>
-
-  <%#= form.label :payment_type_id %>
-  <%#= form.number_field :payment_type_id %>
 
 <% end %>

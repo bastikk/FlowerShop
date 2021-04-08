@@ -11,10 +11,12 @@ import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "js/defaults"
 import "js/helper-functions"
 import "js/main"
 import "js/star-rating"
 import "js/cart"
+import "js/submissions"
 // import "js/cart-drawer"
 
 Rails.start()

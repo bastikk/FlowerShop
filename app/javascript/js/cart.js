@@ -2,6 +2,10 @@ import './cart-drawer'
 
 (function() {
 
+    const DEFAULT_CART = {
+        products: {}
+    }
+
     Array.prototype.syncForEach = function(callback) {
         for (let i = 0; i < this.length; i++) {
             callback(this[i]);
@@ -25,9 +29,16 @@ import './cart-drawer'
         }
 
         Cart.prototype.initCart = function() {
-            this.cart = JSON.parse(window.getFromLS("cart", JSON.stringify({
-                products: {}
-            })));
+            this.cart = JSON.parse(window.getFromLS("cart", JSON.stringify(DEFAULT_CART)));
+        }
+
+        Cart.prototype.clear = function() {
+            this.cart = DEFAULT_CART;
+            this.notify();
+        }
+
+        Cart.prototype.getProducts = function() {
+            return this.cart.products;
         }
 
         Cart.prototype.addProduct = function(product) {
@@ -78,6 +89,16 @@ import './cart-drawer'
         return Cart;
 
     })();
+
+    window.getCartProducts = function() {
+        let cart = new Cart();
+        return cart.getProducts();
+    }
+
+    window.clearCart = function() {
+        let cart = new Cart();
+        cart.clear();
+    }
 
     let cart = new Cart();
 
