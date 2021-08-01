@@ -29,6 +29,7 @@
               <%= form.label "Введіть адресу", class: "full-width no-margin label-required field-label" %>
               <%= form.text_field :address, class: "hpadding-10 full-width form-field", placeholder: "Ваша адреса", required: true %>
             </div>
+           <!-- #ToDo
             <div class="col-md-6 vpadding-10">
               <div class="beautiful-select-wrapper">
                 <label class="full-width no-margin label-required field-label">Виберіть тип доставки</label>
@@ -58,7 +59,27 @@
                   </div>
                 </div>
               </div>
+            </div>-->
+
+            <div class="col-md-6 vpadding-10">
+              <div class="beautiful-select-wrapper">
+                <label class="full-width no-margin label-required field-label">Виберіть тип доставка</label>
+                <div class="beautiful-select">
+                  <%= form.select :delivery_type_id, @delivery_types.map{|i| [i[:name], i[:id]]}%>
+                </div>
+              </div>
             </div>
+
+            <div class="col-md-6 vpadding-10">
+              <div class="beautiful-select-wrapper">
+                <label class="full-width no-margin label-required field-label">Виберіть тип оплати</label>
+                <div class="beautiful-select">
+                  <%= form.select :payment_type_id, @payment_types.map{|i| [i[:name], i[:id]]}%>
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -98,11 +119,4 @@
       </div>
     </div>
   </div>
-
-  <%#= form.label :delivery_type_id %>
-  <%#= form.number_field :delivery_type_id %>
-
-  <%#= form.label :payment_type_id %>
-  <%#= form.number_field :payment_type_id %>
-
 <% end %>

@@ -22,13 +22,13 @@ class OrdersController < ApplicationController
     @orders_products = {Product.last => 2}
     begin
       ActiveRecord::Base.transaction do
-        @order = Order.create!(order_params)
+        @order = Order.create(order_params)
         @orders_products.each { |key, value| OrdersProduct.create!({:order_id => @order.id, :product_id => key.id, :amount => value}) }
-        redirect_to root_path
+        redirect_to products_path, notice: "Ваше замовлення успішно оформлене"
       end
     rescue => e
-      flash[:warning] = 'Something went wrong.'
-      redirect_to orders_new_path
+      flash[:warning] = 'Щось пішло не так. Спробуйте ще раз'
+      redirect_to new_order_path
     end
   end
 
@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
+    p params
     params.require(:order).permit(:name, :surname, :phoneNumber, :address, :delivery_type_id, :payment_type_id)
   end
 

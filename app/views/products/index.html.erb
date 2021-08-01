@@ -1,5 +1,9 @@
 <%= render '/functions/general' %>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <div class="products-content vpadding-5 hflex">
   <div class="col-md-2 col-sm-3 no-padding">
     <div class="categories-list vflex shadow-gray">
@@ -56,10 +60,11 @@
 
         <div class="product-container hpadding-5 vmargin-20 col-lg-3 col-md-4 col-sm-6">
           <div class="product-content border-simple-20 crop-element">
+<!--          #ToDo
             <div class="favorite-block vflex-center">
-<!--              <i class="fas fa-heart"></i>-->
+              <i class="fas fa-heart"></i>
               <i class="far fa-heart"></i>
-            </div>
+            </div>-->
             <div class="crop-element ratio-1-1">
               <div class="full-width full-height responsive-bg-img scalable-bg-img" style="background-image: url('<%= product.product_img.url %>')"></div>
             </div>
