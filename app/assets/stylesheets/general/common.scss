@@ -26,6 +26,10 @@
   flex-grow: 1;
 }
 
+.equal-flex {
+  flex: 1;
+}
+
 .color-wh {
   color: white !important;
 }
@@ -256,6 +260,10 @@
 
 .over-visible {
   overflow: visible;
+}
+
+.over-auto {
+  overflow: auto;
 }
 
 .bottom-fix {

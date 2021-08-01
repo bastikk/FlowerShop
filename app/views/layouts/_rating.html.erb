@@ -1,13 +1,15 @@
 <% full, half, empty = get_stars_parts(rating) %>
 
-<% (0..(full-1)).each do |i| %>
-  <i class="fas fa-star"></i>
-<% end %>
+<div class="product-stars">
+  <% (0..(full-1)).each do |i| %>
+    <i class="material-icons amber-text">star</i>
+  <% end %>
 
-<% (0..(half-1)).each do |i| %>
-  <i class="fas fa-star-half-alt"></i>
-<% end %>
+  <% (0..(half-1)).each do |i| %>
+    <i class="material-icons amber-text">star_half</i>
+  <% end %>
 
-<% (0..(empty-1)).each do |i| %>
-  <i class="far fa-star"></i>
-<% end %>
+  <% (0..(empty-1)).each do |i| %>
+    <i class="material-icons amber-text">star_border</i>
+  <% end %>
+</div>

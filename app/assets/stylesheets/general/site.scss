@@ -1,4 +1,42 @@
-.category-cards .card-image {
+.product-stars {
+  font-size: 0px;
+}
+
+.product-stars i {
+  font-size: 19px;
+}
+
+.badge.no-margin {
+  margin: 0px !important;
+}
+
+.products-area .card {
+  height: 360px;
+}
+
+.products-area .card-content {
+  padding: 10px !important;
+  padding-top: 24px !important;
+}
+
+.products-area .card-image {
+  height: 200px;
+}
+
+.categories-list.collection .collection-item {
+  transition: none !important;
+}
+
+.categories-list.collection .collection-item:hover {
+  box-shadow: inset 0 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.products-area .card-content .card-title {
+  font-size: 20px !important;
+}
+
+.category-cards .card-image,
+.products-area .card-image .image-container {
   height: 200px;
   background-size: cover;
   background-position: center;

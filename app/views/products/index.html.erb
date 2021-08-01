@@ -1,80 +1,101 @@
 <%= render '/functions/general' %>
 
-<div class="products-content vpadding-5 hflex">
-  <div class="col-md-2 col-sm-3 no-padding">
-    <div class="categories-list vflex shadow-gray">
+<div class="products-content vpadding-5 hflex row">
+  <div class="col m2 s3 no-padding">
+
+    <div class="collection z-depth-1 no-border categories-list">
       <% @categories.each do |category| %>
-        <div class="text-truncate data-category category-item vpadding-5 hpadding-20"><%= category.name %></div>
+        <a href="#" class="no-border collection-item truncate uppercase weight-medium clickable teal lighten-1 white-text"><%= category.name %></a>
       <% end %>
     </div>
   </div>
-  <div class="col-md-10 col-sm-9 vpadding-5">
+  <div class="col m10 s9">
 
-    <div class="filter-area hflex full-width over-visible">
-      <div price-slider range-min="0" range-max="1000" class="price-slider full-flex vflex hpadding-10">
-        <%= render "price_slider" %>
+    <div class="filters vflex">
+      <div class="hflex">
+        <div class="hflex">
+          <div class="vflex-center" style="margin-right: 5px">
+            <button class="btn-floating waves-effect waves-light">
+              <i class="material-icons">view_list</i>
+            </button>
+          </div>
+          <div class="vflex-center" style="margin-left: 5px">
+            <button class="btn-floating waves-effect waves-light disabled">
+              <i class="material-icons">view_module</i>
+            </button>
+          </div>
+        </div>
+        <div class="input-field hpadding-10 equal-flex">
+          <i class="material-icons prefix">search</i>
+          <input id="search" type="text" class="validate">
+          <label for="search" class="hpadding-10">Найменування</label>
+        </div>
+        <div class="input-field equal-flex">
+          <select class="beautifulSelect">
+            <option value="" disabled selected>Сортувати за ...</option>
+            <option value="1">За рейтингом</option>
+            <option value="2">Від дешевих до дорогих</option>
+            <option value="3">Від дорогих до дешевих</option>
+            <option value="4">Популярні</option>
+            <option value="5">Акційні</option>
+          </select>
+        </div>
       </div>
-      <div class="search hflex hpadding-10 pt-10">
-        <i class="fas fa-search full-height full-height rot90" style="font-size: 20px; color: var(--dark-main-color)"></i>
-        <input type="text" class="bordered-bottom-constantly hpadding-5" />
-      </div>
-      <div class="sorting-area vflex-end hpadding-5">
-        <%= render "custom_select" %>
-      </div>
-      <div class="view-mode hflex pt-10">
-        <button type="button" class="view-mode-trigger options-icon hmargin-5 active"><i class="fas fa-th"></i></button>
-        <button type="button" class="view-mode-trigger options-icon hmargin-5"><i class="fas fa-list"></i></button>
+      <div style="margin-bottom: 20px">
+        <p class="weight-medium grey-text text-darken-3 fs-sm">
+          Від: <span data-range="products-price-range-left"></span> грн до: <span data-range="products-price-range-right"></span> грн
+        </p>
+        <div id="products-price-range"></div>
       </div>
     </div>
 
-    <div class="products-area vmargin-20">
+    <div class="products-area">
       <div class="row">
 
-      <% @products.each do |product| %>
+        <% @products.each do |product| %>
 
-        <div class="product-container hpadding-5 vmargin-20 col-lg-3 col-md-4 col-sm-6">
-          <div class="product-content border-simple-20 crop-element">
-            <div class="favorite-block vflex-center">
-<!--              <i class="fas fa-heart"></i>-->
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="crop-element ratio-1-1">
-              <div class="full-width full-height responsive-bg-img scalable-bg-img" style="background-image: url('<%= product.product_img.url %>')"></div>
-            </div>
-            <div class="product-info-area hpadding-10 vpadding-5">
-              <div class="product-title title-font-size text-truncate"><%= link_to product.title, product_path(product) %></div>
-              <div class="product-rates hflex">
-                <div class="full-flex title-font-size">
-                  <% priceFull, priceDecimals = format_price product.price %>
-                  <%= priceFull %><sup><%= priceDecimals %></sup> грн.
-                </div>
-                <div class="rating-area vflex-center">
-                  <div class="product-rating hflex">
+          <div class="col l3 m4 s6">
+            <div class="card over-auto vflex z-depth-2 hoverable clickable">
+              <div class="card-image">
+                <div class="image-container full-width full-height waves-effect waves-light" style="background-image: url('<%= product.product_img.url %>')"></div>
+                <a href="#" class="btn-floating halfway-fab waves-effect waves-light red">
+                  <i class="material-icons">
+                    favorite_border
+                  </i>
+                </a>
+              </div>
+              <div class="card-content vflex full-flex">
+                <span class="card-title truncate" style="font-weight: 500"><%= product.title %></span>
+                <div class="full-width vmargin-10">
+                  <div class="left fs-sm">
+                    <% priceFull, priceDecimals = format_price product.price %>
+                    <%= priceFull %><sup><%= priceDecimals %></sup> грн.
+                  </div>
+
+                  <div class="right">
                     <%= render "/layouts/rating", rating: product.average_rating %>
                   </div>
                 </div>
-              </div>
-              <div class="product-bought-area hflex vmargin-5">
-                <div class="vflex-center">
+                <div class="hflex full-flex">
+                  <div class="vflex-center">
+                    <% if product.availability %>
+                      <span class="new badge teal left no-margin" style="font-weight: 500" data-badge-caption="">
+                        Є в наявності
+                      </span>
+                    <% else %>
+                      <span class="new badge red lighten-1 left no-margin" style="font-weight: 500" data-badge-caption="">
+                        Немає в наявності
+                      </span>
+                    <% end %>
+                  </div>
                   <% if product.availability %>
-                    <div class="badge badge-success existence-state">
-                      Є в наявності
-                    </div>
-                  <% else %>
-                    <div class="badge badge-danger existence-state">
-                      Немає в наявності
-                    </div>
+                    <div class="full-flex"></div>
+                    <i class="material-icons right teal-text text-darken-4 small">shopping_cart</i>
                   <% end %>
                 </div>
-                <% if product.availability %>
-                  <div class="cart-icon full-flex hflex-end" style="color: var(--dark-main-color)">
-                    <i class="fas fa-cart-plus"></i>
-                  </div>
-                <% end %>
               </div>
             </div>
           </div>
-        </div>
 
       <% end %>
 
