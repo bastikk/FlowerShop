@@ -14,21 +14,20 @@
         <div class="vpadding-10 hpadding-20">
           <div class="row">
             <div class="col-md-6 vpadding-10">
-              <%= form.label "Введіть прізвище", class: "full-width no-margin label-required field-label" %>
-              <%= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище" %>
+              <%= form.label "Введіть прізвище", class: "full-width no-margin label-required field-label"%>
+              <%= form.text_field :surname, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище", required: true %>
             </div>
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть ім'я", class: "full-width no-margin label-required field-label" %>
-              <%#= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше прізвище" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваше прізвище" />
+              <%= form.text_field :name, class: "hpadding-10 full-width form-field", placeholder: "Ваше ім'я", required: true %>
             </div>
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть номер телефону", class: "full-width no-margin label-required field-label" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваш номер телефону" />
+              <%= form.text_field :phoneNumber, class: "hpadding-10 full-width form-field", placeholder: "Ваш номер телефону", required: true %>
             </div>
             <div class="col-md-6 vpadding-10">
               <%= form.label "Введіть адресу", class: "full-width no-margin label-required field-label" %>
-              <input type="text" class="hpadding-10 full-width form-field" placeholder="Ваша адреса" />
+              <%= form.text_field :address, class: "hpadding-10 full-width form-field", placeholder: "Ваша адреса", required: true %>
             </div>
             <div class="col-md-6 vpadding-10">
               <div class="beautiful-select-wrapper">

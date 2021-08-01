@@ -4,8 +4,13 @@ class ProductsController < ApplicationController
   before_action :authenticate, except: [:index, :show]
 
   def index
-    @products = Product.all
-    @categories= Category.all
+    @filters = filter_params
+    @categories = Category.all
+    if params[:category]
+      @products = Product.where("category_id = #{params[:category]}")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -18,8 +23,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.availability=true
-    @product.average_rating=5
+    @product.availability = true
+    @product.average_rating = 5
     if @product.save
       redirect_to product_path(@product)
     else
@@ -61,5 +66,9 @@ class ProductsController < ApplicationController
     else
       render 'errors/401'
     end
+  end
+
+  def filter_params
+    params.slice(:price,:title)
   end
 end
