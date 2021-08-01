@@ -1,67 +1,69 @@
-<nav class='shop-navbar fixed over-visible'>
-  <div class="hpadding-50 full-height hflex over-visible">
-    <div class='full-height vflex-center over-visible'>
-      <ul class="horizontal-list hflex no-padding over-visible">
-        <li class="link-item">
-          <%= link_to "Головна", "/", class: "color-wh" %>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper hpadding-50 teal lighten-1">
+      <ul class="left uppercase weight-medium">
+        <li>
+          <%= link_to "Головна", "/" %>
         </li>
-        <li class="link-item">
-          <%= link_to "Каталог", products_path, class: "color-wh" %>
+        <li>
+          <%= link_to "Каталог", products_path %>
         </li>
-        <li class="link-item">
-          <%= link_to "Контакти", '/contacts', class: "color-wh" %>
+        <li>
+          <%= link_to "Контакти", '/contacts' %>
         </li>
-        <li class="link-item">
+        <li>
           <a href="javascript:void(0)" class="color-wh">Про нас</a>
         </li>
       </ul>
-    </div>
-    <div class="over-visible full-height vflex-center full-flex">
-      <div class='horizontal-list hflex-end'>
+
+      <ul class="right">
         <% if user_signed_in? %>
           <% if current_user.has_role? :admin %>
-            <div class="link-item icon-button" title="Додати товар">
+            <li title="Додати товар">
               <%= link_to new_product_path do %>
-                <i class="color-wh fas fa-plus"></i>
+                <i class="material-icons navbar-icon">add</i>
               <% end %>
-            </div>
+            </li>
 
-            <div class="link-item icon-button" title="Додати категорію">
+            <li title="Додати категорію">
               <%= link_to new_category_path do %>
-                <i class="color-wh fas fa-plus"></i>
+                <i class="material-icons navbar-icon">add</i>
               <% end %>
-            </div>
+            </li>
           <% end %>
 
-          <div class="link-item icon-button" title="Налаштування">
+          <li title="Налаштування">
             <%= link_to edit_user_registration_path do %>
-              <i class="color-wh fas fa-cog"></i>
+              <i class="material-icons navbar-icon">settings</i>
             <% end %>
-          </div>
+          </li>
 
-          <div class="link-item icon-button" title="Вихід">
+          <li title="Вихід">
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="color-wh fas fa-sign-out-alt"></i>
+              <i class="material-icons navbar-icon">exit_to_app</i>
             <% end %>
-          </div>
+          </li>
 
         <% else %>
-          <div class="link-item icon-button" title="Зареєструватись">
+          <li title="Зареєструватись">
             <%= link_to new_user_registration_path do %>
-              <i class="color-wh fas fa-user-edit"></i>
+              <i class="material-icons navbar-icon">person_add</i>
             <% end %>
-          </div>
-          <div class="link-item icon-button" title="Увійти">
+          </li>
+          <li title="Увійти">
             <%= link_to new_user_session_path do %>
-              <i class="color-wh fas fa-user-alt"></i>
+              <i class="material-icons navbar-icon">person</i>
             <% end %>
-          </div>
-<!--          <div class="link-item icon-button">-->
-<!--            <i class="color-wh fas fa-user-alt" data-toggle="modal" data-target="#authentication-modal"></i>-->
-<!--          </div>-->
+          </li>
+          <li title="">
+            <i data-toggle="modal" data-target="#authentication-modal"></i>
+          </li>
         <% end %>
-        <%= render "/layouts/cart" %>
-      </div>
+        <li title="Корзина">
+          <a href="#"><i class="material-icons navbar-icon">shopping_cart</i></a>
+        </li>
+        <%#= render "/layouts/cart" %>
+      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

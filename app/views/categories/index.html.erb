@@ -2,21 +2,37 @@
   <%= render "slider" %>
 </div>
 
-<div class="full-width content-alignment-center vmargin-20 large-header">Оберіть категорію</div>
+<div class="full-width content-alignment-center vmargin-20 large-header teal-text text-lighten-1">Оберіть категорію</div>
 
 <div class="categories-list vmargin-5">
   <div class="row">
-    <% @categories.each do |category| %>
-      <div class="category-container col-6 col-sm-4 col-md-3 col-lg-2 vpadding-10 hpadding-5">
-        <div class="category vflex full-height">
-          <div class="crop-element full-height ratio-1-1">
-            <div class="full-height responsive-bg-img scalable-bg-img category-image" style="background: url('<%= category.category_img.url %>')"></div>
-          </div>
-          <div class="category-title vflex-center content-alignment-center vpadding-10 text-truncate">
-            <p class="no-margin"><%= link_to category.name, products_path, class: "color-wh category-title text-truncate" %></p>
+    <div class="category-cards">
+      <% @categories.each do |category| %>
+
+        <div class="col xl2 l3 m4 s6">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light" style="background-image: url('<%= category.category_img.url %>')"></div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              <%= category.name %>
+            </span>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+
+
+
+        <!--      <div class="category-container col-6 col-sm-4 col-md-3 col-lg-2 vpadding-10 hpadding-5">-->
+        <!--        <div class="category vflex full-height">-->
+        <!--          <div class="crop-element full-height ratio-1-1">-->
+        <!--            <div class="full-height responsive-bg-img scalable-bg-img category-image" style="background: url('<%#= category.category_img.url %>')"></div>-->
+        <!--          </div>-->
+        <!--          <div class="category-title vflex-center content-alignment-center vpadding-10 text-truncate">-->
+        <!--            <p class="no-margin"><%#= link_to category.name, products_path, class: "color-wh category-title text-truncate" %></p>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--      </div>-->
+      <% end %>
+    </div>
   </div>
 </div>

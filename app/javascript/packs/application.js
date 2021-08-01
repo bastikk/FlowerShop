@@ -17,6 +17,7 @@ import "js/main"
 import "js/star-rating"
 import "js/cart"
 import "js/submissions"
+import "js/document-loaded"
 // import "js/cart-drawer"
 
 Rails.start()

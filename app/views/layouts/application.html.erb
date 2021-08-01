@@ -9,15 +9,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'includes', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet" href="/css/fontawesome-all.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body class="parallax-element">
+  <body class="parallax-element teal accent-1">
     <%= render template: "/layouts/_navbar" %>
 
-    <div class="content hpadding-50">
+    <main class="content hpadding-50">
       <%= yield %>
-    </div>
+    </main>
 
     <%= render template: "/layouts/_footer" %>
 

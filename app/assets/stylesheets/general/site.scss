@@ -1,9 +1,14 @@
-html, body {
-  background-color: var(--background-color) !important;
+.category-cards .card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar-icon {
+  font-size: 30px !important;
 }
 
 .content {
-  padding-top: var(--navbar-height);
   padding-bottom: var(--footer-height);
 }
 
@@ -97,7 +102,7 @@ ul.horizontal-list {
 }
 
 .shop-slider {
-  height: 65vh;
+  max-height: 65vh;
   overflow: hidden;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
 }
@@ -129,7 +134,7 @@ a.category-title {
 footer {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
   height: var(--footer-height);
-  background-color: var(--main-color);
+  z-index: 1000000;
 }
 
 .info-text {
