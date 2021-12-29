@@ -42,15 +42,15 @@
 
   def getStringMonth(monthNumber)
     monthNames = Array[
-      "Січня", "Лютого",
+     "Грудня","Січня", "Лютого",
       "Березня", "Квітня",
       "Травня", "Червня",
       "Липня", "Серпня",
       "Вересня", "Жовтня",
-      "Листопада", "Грудня"
+      "Листопада"
     ]
 
-    return monthNames[monthNumber]
+    return monthNames[monthNumber-1]
   end
 
   def get_user_review(product, user)
